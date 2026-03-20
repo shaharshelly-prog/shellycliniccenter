@@ -455,10 +455,16 @@
       display: flex; flex-direction: column; align-items: center; flex-shrink: 0;
     }
     .tl-circle {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: var(--navy); color: var(--white);
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--white);
+      border: 1.5px solid var(--mid);
       display: flex; align-items: center; justify-content: center;
-      font-size: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow-s);
+    }
+    .tl-circle img {
+      width: 100%; height: 100%;
+      object-fit: contain; padding: 5px;
     }
     .tl-line { flex: 1; width: 2px; background: var(--mid); margin-top: 6px; }
     .tl-body { padding-bottom: 8px; }
@@ -932,7 +938,10 @@
 
         <div class="timeline">
           <div class="tl-item">
-            <div class="tl-dot"><div class="tl-circle">🎓</div><div class="tl-line"></div></div>
+            <div class="tl-dot">
+              <div class="tl-circle"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Ud-also-eng-wiki.png" alt="University of Debrecen" /></div>
+              <div class="tl-line"></div>
+            </div>
             <div class="tl-body">
               <div class="tl-year">2005 – 2012</div>
               <div class="tl-title" data-en="Medical Degree" data-he="תואר רפואי">Medical Degree</div>
@@ -940,7 +949,10 @@
             </div>
           </div>
           <div class="tl-item">
-            <div class="tl-dot"><div class="tl-circle">🏥</div><div class="tl-line"></div></div>
+            <div class="tl-dot">
+              <div class="tl-circle"><img src="https://www.sheba.co.il/assets/icons/sheba-logo/sheba-logo.svg" alt="Sheba Medical Center" /></div>
+              <div class="tl-line"></div>
+            </div>
             <div class="tl-body">
               <div class="tl-year">2013 – 2017</div>
               <div class="tl-title" data-en="Neurology Residency" data-he="רזידנטורה בנוירולוגיה">Neurology Residency</div>
@@ -948,7 +960,10 @@
             </div>
           </div>
           <div class="tl-item">
-            <div class="tl-dot"><div class="tl-circle">🔬</div><div class="tl-line"></div></div>
+            <div class="tl-dot">
+              <div class="tl-circle"><img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Mayo_Clinic_2023_logo.svg" alt="Mayo Clinic" /></div>
+              <div class="tl-line"></div>
+            </div>
             <div class="tl-body">
               <div class="tl-year">2018 – 2021</div>
               <div class="tl-title" data-en="Fellowship — Mayo Clinic" data-he="פלואושיפ — Mayo Clinic">Fellowship — Mayo Clinic</div>
@@ -956,7 +971,10 @@
             </div>
           </div>
           <div class="tl-item">
-            <div class="tl-dot"><div class="tl-circle">🧬</div><div class="tl-line"></div></div>
+            <div class="tl-dot">
+              <div class="tl-circle"><img src="https://upload.wikimedia.org/wikipedia/commons/9/94/The_logo_of_rambam_health_care_campus_c.jpg" alt="Rambam" /></div>
+              <div class="tl-line"></div>
+            </div>
             <div class="tl-body">
               <div class="tl-year">2022 – present</div>
               <div class="tl-title" data-en="Head, Neuromuscular Division — Rambam" data-he="ראש יחידה נוירומוסקולרית — רמב״ם">Head, Neuromuscular Division — Rambam</div>
@@ -964,7 +982,10 @@
             </div>
           </div>
           <div class="tl-item">
-            <div class="tl-dot"><div class="tl-circle">🤖</div><div class="tl-line"></div></div>
+            <div class="tl-dot">
+              <div class="tl-circle"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Technion_logo.svg" alt="Technion" /></div>
+              <div class="tl-line"></div>
+            </div>
             <div class="tl-body">
               <div class="tl-year">2022 – present</div>
               <div class="tl-title" data-en="Head of Neuroimmunology & AI Neurology Lab — Technion" data-he="ראש נוירואימונולוגיה ומעבדת AI — טכניון">Head of Neuroimmunology & AI Neurology Lab — Technion</div>
@@ -972,7 +993,9 @@
             </div>
           </div>
           <div class="tl-item">
-            <div class="tl-dot"><div class="tl-circle">👑</div></div>
+            <div class="tl-dot">
+              <div class="tl-circle"><img src="https://upload.wikimedia.org/wikipedia/commons/9/94/The_logo_of_rambam_health_care_campus_c.jpg" alt="Rambam" /></div>
+            </div>
             <div class="tl-body">
               <div class="tl-year">April 2024</div>
               <div class="tl-title" data-en="Chair, Department of Neurology — Rambam" data-he="ראש מחלקת נוירולוגיה — רמב״ם">Chair, Department of Neurology — Rambam</div>
