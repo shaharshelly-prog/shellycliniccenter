@@ -221,6 +221,29 @@
     }
     .nav-appt:hover { background: var(--teal-l); transform: translateY(-1px); }
 
+    /* WhatsApp floating button */
+    .whatsapp-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 998;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,.45);
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,.55); }
+    .whatsapp-float svg { width: 30px; height: 30px; fill: white; }
+    .whatsapp-float .wa-tooltip {
+      position: absolute; right: 68px;
+      background: #1a1a1a; color: white;
+      font-size: .78rem; font-weight: 600;
+      padding: 6px 12px; border-radius: 6px;
+      white-space: nowrap; opacity: 0;
+      transition: opacity .2s;
+      pointer-events: none;
+    }
+    .whatsapp-float:hover .wa-tooltip { opacity: 1; }
+
     /* ══════════════════════════════════════════════
        HERO
     ══════════════════════════════════════════════ */
@@ -1234,6 +1257,13 @@
               <div class="val"><a href="mailto:shaharshelly@gmail.com">shaharshelly@gmail.com</a></div>
             </div>
           </div>
+          <div class="contact-item">
+            <div class="contact-icon" style="background:#e8f9ef;">💬</div>
+            <div>
+              <div class="lbl" data-en="WhatsApp" data-he="וואטסאפ">WhatsApp</div>
+              <div class="val"><a href="https://wa.me/972559669522" target="_blank" style="color:#25D366;">055-9669522</a></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1377,6 +1407,14 @@
     alert(msg);
   });
 </script>
+
+<!-- WhatsApp floating button -->
+<a href="https://wa.me/972559669522" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <span class="wa-tooltip" data-en="Chat with us on WhatsApp" data-he="שלח הודעה בוואטסאפ">Chat with us on WhatsApp</span>
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.494 2.031 7.806L0 32l8.418-2.007A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.776-1.853l-.486-.289-5.002 1.193 1.228-4.862-.317-.5A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.352-1.16-2.717-1.292-.365-.133-.631-.199-.897.199-.266.398-1.029 1.292-1.261 1.558-.232.266-.465.299-.863.1-.398-.2-1.681-.62-3.202-1.977-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.174-.811.179-.178.398-.465.597-.697.199-.232.266-.398.398-.664.133-.266.067-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.777-.653-.672-.897-.684l-.764-.013c-.266 0-.697.1-1.062.498-.365.398-1.394 1.362-1.394 3.324s1.427 3.855 1.626 4.121c.199.266 2.808 4.287 6.803 6.014.951.41 1.693.655 2.271.839.954.303 1.823.26 2.51.158.765-.114 2.352-.961 2.684-1.889.332-.928.332-1.724.232-1.889-.1-.166-.365-.266-.763-.465z"/>
+  </svg>
+</a>
 
 </body>
 </html>
