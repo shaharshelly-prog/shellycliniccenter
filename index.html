@@ -226,8 +226,8 @@
     ══════════════════════════════════════════════ */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 50%, #0A4A6E 100%);
-      display: flex; align-items: center;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 55%, #0A4A6E 100%);
+      display: flex; align-items: stretch;
       padding-top: 66px;
       position: relative;
       overflow: hidden;
@@ -236,39 +236,128 @@
       content: '';
       position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 70% 60% at 80% 50%, rgba(200,151,31,.08) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 50% at 20% 80%, rgba(11,122,140,.15) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 70% at 75% 40%, rgba(200,151,31,.07) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 15% 80%, rgba(11,122,140,.18) 0%, transparent 60%);
     }
     .hero-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 60px; align-items: center;
-      position: relative;
+      display: grid; grid-template-columns: 1.1fr 0.9fr;
+      gap: 0; align-items: stretch;
+      position: relative; width: 100%;
     }
-    .hero-content { color: var(--white); }
+    .hero-content {
+      color: var(--white);
+      padding: 70px 5% 70px 5%;
+      display: flex; flex-direction: column; justify-content: center;
+    }
     .hero-eyebrow {
       display: flex; align-items: center; gap: 10px;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
     .hero-eyebrow span {
-      font-size: .8rem; font-weight: 600; letter-spacing: .1em;
+      font-size: .78rem; font-weight: 700; letter-spacing: .12em;
       text-transform: uppercase; color: var(--gold-l);
     }
-    .hero-eyebrow::before, .hero-eyebrow::after {
-      content: ''; flex: 1; max-width: 40px;
+    .hero-eyebrow::before {
+      content: ''; width: 32px;
       height: 1px; background: var(--gold-l);
     }
-    .hero-eyebrow::after { display: none; }
 
     .hero h1 { color: var(--white); margin-bottom: 10px; }
     .hero-title-sub {
-      font-size: clamp(1rem,2.5vw,1.35rem);
+      font-size: clamp(1rem,2.2vw,1.25rem);
       color: var(--gold-l);
       font-weight: 500;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
-    .hero p { color: rgba(255,255,255,.75); font-size: 1.05rem; margin-bottom: 34px; max-width: 480px; }
+    .hero-tagline {
+      font-size: 1.08rem;
+      color: rgba(255,255,255,.80);
+      margin-bottom: 12px;
+      font-style: italic;
+      border-left: 3px solid var(--teal-l);
+      padding-left: 14px;
+    }
+    .hero p { color: rgba(255,255,255,.70); font-size: .97rem; margin-bottom: 32px; max-width: 500px; }
 
-    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+
+    /* Trust badges */
+    .trust-badges {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
+    .trust-badge {
+      display: flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50px;
+      padding: 7px 14px;
+      font-size: .78rem; font-weight: 600;
+      color: rgba(255,255,255,.80);
+    }
+    .trust-badge .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold-l); flex-shrink: 0;
+    }
+
+    /* Hero photo panel */
+    .hero-photo-panel {
+      position: relative;
+      display: flex; align-items: flex-end; justify-content: center;
+      overflow: hidden;
+      min-height: 600px;
+    }
+    .hero-photo-panel::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, var(--navy) 0%, transparent 30%),
+                  linear-gradient(to top, var(--navy) 0%, transparent 25%);
+      z-index: 1;
+    }
+    .hero-photo-panel img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      position: absolute; inset: 0;
+      filter: saturate(0.9);
+    }
+    /* Floating stat cards on photo */
+    .hero-stat-float {
+      position: absolute; z-index: 2;
+      background: rgba(13,43,85,.88);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 14px;
+      padding: 14px 18px;
+      text-align: center;
+    }
+    .hero-stat-float.top-right { top: 28px; right: 24px; }
+    .hero-stat-float.mid-left  { top: 50%; left: -20px; transform: translateY(-50%); }
+    .hero-stat-float .fs-num {
+      font-size: 1.7rem; font-weight: 800;
+      color: var(--gold-l); line-height: 1;
+    }
+    .hero-stat-float .fs-label {
+      font-size: .72rem; color: rgba(255,255,255,.65);
+      font-weight: 500; margin-top: 3px;
+    }
+    /* Name plate at bottom of photo */
+    .hero-nameplate {
+      position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+      z-index: 2; white-space: nowrap;
+      background: rgba(13,43,85,.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(200,151,31,.3);
+      border-radius: 12px;
+      padding: 12px 24px;
+      text-align: center;
+    }
+    .hero-nameplate .np-name {
+      font-size: 1rem; font-weight: 700; color: var(--white);
+    }
+    .hero-nameplate .np-title {
+      font-size: .75rem; color: var(--gold-l); margin-top: 2px;
+    }
 
     /* Credentials strip */
     .hero-creds {
@@ -289,22 +378,10 @@
     .cred-text { font-size: .84rem; color: rgba(255,255,255,.75); line-height: 1.35; }
     .cred-text strong { color: var(--white); display: block; font-size: .88rem; }
 
-    /* Hero image card */
-    .hero-card {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 20px;
-      padding: 36px 32px;
-      backdrop-filter: blur(8px);
-    }
-    .hero-avatar {
-      width: 90px; height: 90px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--teal) 0%, var(--navy2) 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.4rem; font-weight: 800; color: var(--white);
-      margin: 0 auto 20px;
-      border: 3px solid rgba(200,151,31,.4);
-    }
+    /* Keep old hero-card hidden (desktop only via media query) */
+    .hero-card { display: none; }
+    .hero-avatar { display: none; }
+
     .stat-grid {
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 14px; margin-top: 24px;
@@ -611,8 +688,14 @@
        RESPONSIVE
     ══════════════════════════════════════════════ */
     @media (max-width: 900px) {
-      .hero-inner, .about-grid, .research-grid, .contact-grid { grid-template-columns: 1fr; }
-      .hero-card { display: none; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo-panel { min-height: 420px; order: -1; }
+      .hero-photo-panel::before {
+        background: linear-gradient(to bottom, transparent 50%, var(--navy) 100%);
+      }
+      .hero-stat-float.mid-left { display: none; }
+      .hero-content { padding: 40px 5%; }
+      .about-grid, .research-grid, .contact-grid { grid-template-columns: 1fr; }
       .spec-grid { grid-template-columns: 1fr 1fr; }
       .awards-grid { grid-template-columns: 1fr 1fr; }
       .services-grid { grid-template-columns: 1fr; }
@@ -620,10 +703,15 @@
       .nav-links { display: none; }
     }
     @media (max-width: 580px) {
+      .hero-photo-panel { min-height: 340px; }
+      .hero-nameplate { width: 90%; }
       .spec-grid, .awards-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .hero-ctas { flex-direction: column; }
+      .trust-badges { gap: 8px; }
+      .trust-badge { font-size: .72rem; padding: 6px 11px; }
+      .hero-stat-float.top-right { top: 14px; right: 14px; }
     }
 
     /* ══════════════════════════════════════════════
@@ -696,70 +784,44 @@
         </div>
 
         <h1 data-en="Dr. Shahar Shelly" data-he="ד״ר שחר שלי">Dr. Shahar Shelly</h1>
-        <div class="hero-title-sub" data-en="Neuromuscular Diseases · Neuroimmunology · AI in Neurology" data-he="מחלות נוירומוסקולריות · נוירואימונולוגיה · AI בנוירולוגיה">
-          Neuromuscular Diseases · Neuroimmunology · AI in Neurology
+        <div class="hero-title-sub" data-en="Neurologist · Neuromuscular & Neuroimmunology Specialist" data-he="נוירולוג · מומחה נוירומוסקולרי ונוירואימונולוגי">
+          Neurologist · Neuromuscular & Neuroimmunology Specialist
         </div>
 
-        <p data-en="Specialist in peripheral nervous system disorders, autoimmune neurological diseases, and clinical electrophysiology. Department Chair at Rambam, Senior Lecturer at the Technion, and alumnus of Mayo Clinic — bridging cutting-edge research with compassionate patient care."
-           data-he="מומחה למחלות מערכת העצבים ההיקפית, מחלות נוירולוגיות אוטואימוניות ואלקטרופיזיולוגיה קלינית. ראש מחלקה ברמב״ם, מרצה בכיר בטכניון, ובוגר Mayo Clinic — מגשר בין מחקר חדשני לטיפול רפואי מקצועי ואנושי.">
-          Specialist in peripheral nervous system disorders, autoimmune neurological diseases, and clinical electrophysiology. Department Chair at Rambam, Senior Lecturer at the Technion, and alumnus of Mayo Clinic — bridging cutting-edge research with compassionate patient care.
+        <div class="hero-tagline" data-en="&ldquo;World-class expertise. Personal, attentive care.&rdquo;" data-he="&ldquo;מומחיות ברמה עולמית. טיפול אישי ומקצועי.&rdquo;">
+          &ldquo;World-class expertise. Personal, attentive care.&rdquo;
+        </div>
+
+        <p data-en="If you or a loved one are struggling with a neurological condition — weakness, numbness, muscle disease, or an unexplained diagnosis — Dr. Shelly offers rapid, expert evaluation backed by years of research at Mayo Clinic, Rambam, and the Technion."
+           data-he="אם אתה או יקירך מתמודדים עם מצב נוירולוגי — חולשה, קהות, מחלת שריר, או אבחנה בלתי מוסברת — ד״ר שלי מציע הערכה מומחית ומהירה, המגובה בשנות מחקר ב-Mayo Clinic, רמב״ם וטכניון.">
+          If you or a loved one are struggling with a neurological condition — weakness, numbness, muscle disease, or an unexplained diagnosis — Dr. Shelly offers rapid, expert evaluation backed by years of research at Mayo Clinic, Rambam, and the Technion.
         </p>
 
         <div class="hero-ctas">
-          <a href="https://www.tor4you.co.il/edstn.asp?siteid=8908&sid=8ACDEA42CCE309DF" target="_blank" class="btn btn-primary" data-en="📅 Book a Consultation" data-he="📅 קבע ייעוץ">📅 Book a Consultation</a>
-          <a href="#about"   class="btn btn-outline"  data-en="Learn More" data-he="קרא עוד">Learn More</a>
+          <a href="https://www.tor4you.co.il/edstn.asp?siteid=8908&sid=8ACDEA42CCE309DF" target="_blank" class="btn btn-primary" style="font-size:1rem; padding:15px 32px;" data-en="📅 Book a Consultation" data-he="📅 קבע ייעוץ">📅 Book a Consultation</a>
+          <a href="#specialties" class="btn btn-outline" data-en="Our Services" data-he="השירותים שלנו">Our Services</a>
         </div>
 
-        <div class="hero-creds">
-          <div class="cred-item">
-            <div class="cred-icon">🏥</div>
-            <div class="cred-text">
-              <strong data-en="Rambam Health Care Campus" data-he="קמפוס רמב״ם לבריאות">Rambam Health Care Campus</strong>
-              <span data-en="Chair, Department of Neurology (since 2024)" data-he="ראש מחלקת נוירולוגיה (מ-2024)">Chair, Department of Neurology (since 2024)</span>
-            </div>
-          </div>
-          <div class="cred-item">
-            <div class="cred-icon">🎓</div>
-            <div class="cred-text">
-              <strong data-en="Technion – Israel Institute of Technology" data-he="טכניון – מכון טכנולוגי לישראל">Technion – Israel Institute of Technology</strong>
-              <span data-en="Senior Lecturer, Faculty of Medicine | Head, Neuroimmunology Dept." data-he="מרצה בכיר, הפקולטה לרפואה | ראש מחלקת נוירואימונולוגיה">Senior Lecturer, Faculty of Medicine | Head, Neuroimmunology Dept.</span>
-            </div>
-          </div>
-          <div class="cred-item">
-            <div class="cred-icon">🔬</div>
-            <div class="cred-text">
-              <strong data-en="Mayo Clinic, Rochester, MN" data-he="Mayo Clinic, רוצ׳סטר, מינסוטה">Mayo Clinic, Rochester, MN</strong>
-              <span data-en="Fellowship · Neuromuscular Diseases & Electrophysiology" data-he="פלואושיפ · מחלות נוירומוסקולריות ואלקטרופיזיולוגיה">Fellowship · Neuromuscular Diseases & Electrophysiology</span>
-            </div>
-          </div>
+        <div class="trust-badges">
+          <div class="trust-badge"><div class="dot"></div><span data-en="Mayo Clinic Fellowship" data-he="פלואושיפ Mayo Clinic">Mayo Clinic Fellowship</span></div>
+          <div class="trust-badge"><div class="dot"></div><span data-en="Top 10 Neurologist (Doximity)" data-he="טופ 10 נוירולוגים (Doximity)">Top 10 Neurologist (Doximity)</span></div>
+          <div class="trust-badge"><div class="dot"></div><span data-en="40+ Publications" data-he="40+ פרסומים">40+ Publications</span></div>
+          <div class="trust-badge"><div class="dot"></div><span data-en="Rambam Chair of Neurology" data-he="ראש נוירולוגיה רמב״ם">Rambam Chair of Neurology</span></div>
         </div>
       </div>
 
-      <!-- RIGHT: stats card -->
-      <div class="hero-card">
-        <div class="hero-avatar" style="background:none; border:3px solid rgba(200,151,31,.4); overflow:hidden;">
-          <img src="photo.jpg" alt="Dr. Shahar Shelly" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" />
-        </div>
-        <div class="text-center" style="color:rgba(255,255,255,.85); font-size:.9rem; font-weight:600;" data-en="Dr. Shahar Shelly, MD" data-he="ד״ר שחר שלי, MD">Dr. Shahar Shelly, MD</div>
-        <div class="text-center" style="color:rgba(200,151,31,.8); font-size:.78rem; margin-top:4px;" data-en="Neurologist · Neuroimmunologist" data-he="נוירולוג · נוירואימונולוג">Neurologist · Neuroimmunologist</div>
+      <!-- RIGHT: large photo -->
+      <div class="hero-photo-panel">
+        <img src="photo.jpg" alt="Dr. Shahar Shelly, Neurologist" />
 
-        <div class="stat-grid">
-          <div class="stat-box">
-            <div class="stat-num">40+</div>
-            <div class="stat-label" data-en="Publications" data-he="פרסומים">Publications</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-num">15+</div>
-            <div class="stat-label" data-en="Years Experience" data-he="שנות ניסיון">Years Experience</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-num">3</div>
-            <div class="stat-label" data-en="Research Focus Areas" data-he="תחומי מחקר">Research Focus Areas</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-num">Top 10</div>
-            <div class="stat-label" data-en="Neurologists (Doximity)" data-he="נוירולוגים (Doximity)">Neurologists (Doximity)</div>
-          </div>
+        <div class="hero-stat-float top-right">
+          <div class="fs-num">15+</div>
+          <div class="fs-label" data-en="Years of Experience" data-he="שנות ניסיון">Years of Experience</div>
+        </div>
+
+        <div class="hero-nameplate">
+          <div class="np-name" data-en="Dr. Shahar Shelly, MD" data-he="ד״ר שחר שלי, MD">Dr. Shahar Shelly, MD</div>
+          <div class="np-title" data-en="Neurologist · Rambam | Technion | Mayo Clinic" data-he="נוירולוג · רמב״ם | טכניון | Mayo Clinic">Neurologist · Rambam | Technion | Mayo Clinic</div>
         </div>
       </div>
 
