@@ -788,6 +788,167 @@
     .mobile-menu-footer .nav-appt { flex: 1; text-align: center; }
 
     /* ══════════════════════════════════════════════
+       MG MONITOR PROGRAM
+    ══════════════════════════════════════════════ */
+    .mg-monitor-section {
+      background: linear-gradient(135deg, #071d3b 0%, #0a2d52 50%, #0b4a5a 100%);
+      padding: 90px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .mg-monitor-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 80% 30%, rgba(11,122,140,.20) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(200,151,31,.08) 0%, transparent 55%);
+    }
+    .mg-monitor-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr;
+      gap: 64px; align-items: start;
+      position: relative;
+    }
+
+    .now-enrolling-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(11,122,140,.25);
+      border: 1px solid rgba(11,184,210,.40);
+      border-radius: 50px;
+      padding: 6px 16px 6px 10px;
+      margin-bottom: 22px;
+    }
+    .now-enrolling-badge .pulse-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #12e0c0;
+      box-shadow: 0 0 0 0 rgba(18,224,192,.6);
+      animation: pulse-ring 1.6s ease-out infinite;
+    }
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(18,224,192,.6); }
+      70%  { box-shadow: 0 0 0 8px rgba(18,224,192,0); }
+      100% { box-shadow: 0 0 0 0 rgba(18,224,192,0); }
+    }
+    .now-enrolling-badge span {
+      font-size: .75rem; font-weight: 800;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: #12e0c0;
+    }
+
+    .mg-monitor-section h2 { color: var(--white); }
+    .mg-monitor-section .section-sub {
+      color: rgba(255,255,255,.70);
+      font-size: 1rem; line-height: 1.7;
+      margin-top: 12px; margin-bottom: 32px;
+    }
+
+    .program-steps {
+      display: flex; flex-direction: column; gap: 20px;
+      margin-bottom: 36px;
+    }
+    .program-step {
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .step-num {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-l));
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; font-weight: 800; color: var(--white);
+      flex-shrink: 0;
+    }
+    .step-body .step-title {
+      font-size: .95rem; font-weight: 700; color: var(--white);
+      margin-bottom: 3px;
+    }
+    .step-body .step-desc {
+      font-size: .84rem; color: rgba(255,255,255,.60);
+      line-height: 1.5;
+    }
+
+    .program-benefits {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
+    .program-benefit {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .80rem; font-weight: 600;
+      color: rgba(255,255,255,.75);
+    }
+    .program-benefit::before {
+      content: '✓';
+      width: 18px; height: 18px; border-radius: 50%;
+      background: rgba(18,224,192,.15);
+      color: #12e0c0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .72rem; font-weight: 800; flex-shrink: 0;
+    }
+
+    .mg-monitor-form-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 20px;
+      padding: 36px 32px;
+      backdrop-filter: blur(10px);
+    }
+    .mg-monitor-form-card h3 {
+      color: var(--white); font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+    .mg-monitor-form-card .form-sub {
+      font-size: .84rem; color: rgba(255,255,255,.55);
+      margin-bottom: 24px; line-height: 1.5;
+    }
+    .mg-monitor-form-card .form-group { margin-bottom: 14px; }
+    .mg-monitor-form-card label {
+      display: block; font-size: .78rem; font-weight: 600;
+      color: rgba(255,255,255,.60); margin-bottom: 6px;
+      letter-spacing: .03em; text-transform: uppercase;
+    }
+    .mg-monitor-form-card input,
+    .mg-monitor-form-card select {
+      width: 100%;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 8px;
+      padding: 11px 14px;
+      font-size: .9rem; color: var(--white);
+      font-family: inherit;
+      transition: border-color .2s;
+      outline: none;
+    }
+    .mg-monitor-form-card input::placeholder { color: rgba(255,255,255,.30); }
+    .mg-monitor-form-card input:focus,
+    .mg-monitor-form-card select:focus { border-color: #12e0c0; }
+    .mg-monitor-form-card select option { background: #0a2d52; color: var(--white); }
+    .mg-monitor-submit {
+      width: 100%; padding: 14px;
+      background: linear-gradient(135deg, var(--teal), #0a9eb5);
+      color: var(--white); border: none; border-radius: 10px;
+      font-size: .95rem; font-weight: 700;
+      cursor: pointer; margin-top: 6px;
+      transition: opacity .2s, transform .15s;
+      font-family: inherit;
+    }
+    .mg-monitor-submit:hover { opacity: .9; transform: translateY(-1px); }
+    .mg-monitor-promise {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 14px;
+      font-size: .78rem; color: rgba(255,255,255,.45);
+      justify-content: center; text-align: center;
+    }
+    .mg-monitor-promise::before { content: '🔒'; font-size: .85rem; }
+    #mg-monitor-msg {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: .88rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* ══════════════════════════════════════════════
        INLINE GRID CLASSES
     ══════════════════════════════════════════════ */
     .mg-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
@@ -814,7 +975,7 @@
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .nav-appt { display: none; }
-      .mg-grid, .clinic-grid, .press-podcast-grid { grid-template-columns: 1fr; }
+      .mg-grid, .clinic-grid, .press-podcast-grid, .mg-monitor-grid { grid-template-columns: 1fr; }
       .press-nejm-inner { grid-template-columns: 1fr; }
     }
     @media (max-width: 580px) {
@@ -892,6 +1053,7 @@
     <li><a href="#specialties" data-en="Specialties" data-he="תחומי התמחות">Specialties</a></li>
     <li><a href="#press"      data-en="Press"       data-he="בתקשורת">Press</a></li>
     <li><a href="#myasthenia" data-en="Myasthenia" data-he="מיאסטניה גרביס">Myasthenia</a></li>
+    <li><a href="#mg-monitor" data-en="MG Monitor" data-he="MG Monitor" style="color:var(--teal);">MG Monitor</a></li>
     <li><a href="#clinic"     data-en="Clinic"     data-he="קליניקה פרטית">Clinic</a></li>
     <li><a href="#previsit"   data-en="Pre-Visit Form" data-he="טופס לפני הביקור">Pre-Visit Form</a></li>
     <li><a href="#pricing"    data-en="Pricing"    data-he="מחירון">Pricing</a></li>
@@ -917,6 +1079,7 @@
     <li><a href="#specialties" onclick="closeMobileMenu()" data-en="Specialties"   data-he="תחומי התמחות">Specialties</a></li>
     <li><a href="#press"       onclick="closeMobileMenu()" data-en="Press"         data-he="בתקשורת">Press</a></li>
     <li><a href="#myasthenia"  onclick="closeMobileMenu()" data-en="Myasthenia"    data-he="מיאסטניה גרביס">Myasthenia</a></li>
+    <li><a href="#mg-monitor"  onclick="closeMobileMenu()" data-en="MG Monitor"    data-he="MG Monitor" style="color:var(--teal);">MG Monitor</a></li>
     <li><a href="#clinic"      onclick="closeMobileMenu()" data-en="Clinic"        data-he="קליניקה פרטית">Clinic</a></li>
     <li><a href="#previsit"    onclick="closeMobileMenu()" data-en="Pre-Visit Form" data-he="טופס לפני הביקור">Pre-Visit Form</a></li>
     <li><a href="#pricing"     onclick="closeMobileMenu()" data-en="Pricing"       data-he="מחירון">Pricing</a></li>
@@ -1292,6 +1455,103 @@
             <div class="pub-meta">2025 · <span class="pub-journal">Frontiers in Immunology</span></div>
           </div>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     MG MONITOR PROGRAM
+══════════════════════════════════════ -->
+<section class="mg-monitor-section" id="mg-monitor">
+  <div class="container">
+    <div class="mg-monitor-grid">
+
+      <!-- LEFT: program info -->
+      <div>
+        <div class="now-enrolling-badge">
+          <div class="pulse-dot"></div>
+          <span data-en="Now Enrolling" data-he="פתוח להרשמה">Now Enrolling</span>
+        </div>
+
+        <h2 data-en="MG Monitor — Remote Patient Monitoring Program" data-he="MG Monitor — תוכנית מעקב מרחוק לחולי מיאסטניה גרביס">MG Monitor — Remote Patient Monitoring Program</h2>
+
+        <p class="section-sub" data-en="Living with Myasthenia Gravis means navigating an unpredictable disease. MG Monitor is a professional remote monitoring program that keeps expert eyes on your condition between clinic visits — so changes are caught early, and you never face a flare alone."
+           data-he="חיים עם מיאסטניה גרביס פירושם התמודדות עם מחלה בלתי צפויה. MG Monitor היא תוכנית מעקב מקצועית מרחוק שמאפשרת לצוות המומחים שלנו לעקוב אחר מצבך בין הביקורים בקליניקה — כדי שכל שינוי יזוהה מוקדם, ואף החמרה לא תעבור ללא מענה.">
+          Living with Myasthenia Gravis means navigating an unpredictable disease. MG Monitor is a professional remote monitoring program that keeps expert eyes on your condition between clinic visits — so changes are caught early, and you never face a flare alone.
+        </p>
+
+        <div class="program-steps">
+          <div class="program-step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <div class="step-title" data-en="Register" data-he="הרשמה">Register</div>
+              <div class="step-desc" data-en="Fill in your details. Our team will call you back within 48 hours to confirm enrollment." data-he="מלאו את הפרטים. הצוות שלנו יחזור אליכם תוך 48 שעות לאישור ההצטרפות.">Fill in your details. Our team will call you back within 48 hours to confirm enrollment.</div>
+            </div>
+          </div>
+          <div class="program-step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <div class="step-title" data-en="Regular Symptom Questionnaires" data-he="שאלוני תסמינים שוטפים">Regular Symptom Questionnaires</div>
+              <div class="step-desc" data-en="Receive structured, validated MG symptom questionnaires at regular intervals. Completed from home — no travel needed." data-he="קבלו שאלוני תסמינים מאומתים ומובנים במרווחים קבועים. ממלאים מהבית — ללא צורך בנסיעה.">Receive structured, validated MG symptom questionnaires at regular intervals. Completed from home — no travel needed.</div>
+            </div>
+          </div>
+          <div class="program-step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <div class="step-title" data-en="Expert Review & Proactive Care" data-he="סקירת מומחה וטיפול יזום">Expert Review & Proactive Care</div>
+              <div class="step-desc" data-en="Dr. Shelly's nursing team reviews every response. If something needs attention, we reach out — before it becomes a crisis." data-he="צוות האחיות של ד״ר שלי עוקב אחר כל תשובה. אם משהו מצריך תשומת לב — אנחנו יוצרים קשר לפני שמדובר במשבר.">Dr. Shelly's nursing team reviews every response. If something needs attention, we reach out — before it becomes a crisis.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="program-benefits">
+          <div class="program-benefit" data-en="Early detection of flares" data-he="זיהוי מוקדם של החמרות">Early detection of flares</div>
+          <div class="program-benefit" data-en="From home — no travel" data-he="מהבית — ללא נסיעות">From home — no travel</div>
+          <div class="program-benefit" data-en="Expert nursing team" data-he="צוות אחיות מומחה">Expert nursing team</div>
+          <div class="program-benefit" data-en="Backed by Dr. Shelly" data-he="בפיקוח ד״ר שלי">Backed by Dr. Shelly</div>
+          <div class="program-benefit" data-en="Personalised follow-up" data-he="מעקב אישי ומותאם">Personalised follow-up</div>
+          <div class="program-benefit" data-en="Free to join" data-he="הצטרפות ללא עלות">Free to join</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: signup form -->
+      <div class="mg-monitor-form-card">
+        <h3 data-en="Join MG Monitor" data-he="הצטרפו ל-MG Monitor">Join MG Monitor</h3>
+        <p class="form-sub" data-en="Leave your details and we'll call you back within 48 hours." data-he="השאירו פרטים ונחזור אליכם תוך 48 שעות.">Leave your details and we'll call you back within 48 hours.</p>
+
+        <form id="mgMonitorForm">
+          <div class="form-group">
+            <label data-en="Full Name" data-he="שם מלא">Full Name</label>
+            <input type="text" id="mg-name" placeholder="Your full name" data-placeholder-en="Your full name" data-placeholder-he="שם מלא" required />
+          </div>
+          <div class="form-group">
+            <label data-en="Phone Number" data-he="מספר טלפון">Phone Number</label>
+            <input type="tel" id="mg-phone" placeholder="05X-XXXXXXX" required />
+          </div>
+          <div class="form-group">
+            <label data-en="Year of MG Diagnosis" data-he="שנת אבחון MG">Year of MG Diagnosis</label>
+            <input type="number" id="mg-year" placeholder="e.g. 2019" data-placeholder-en="e.g. 2019" data-placeholder-he="לדוגמה: 2019" min="1980" max="2026" />
+          </div>
+          <div class="form-group">
+            <label data-en="Current Treatment" data-he="טיפול נוכחי">Current Treatment</label>
+            <select id="mg-treatment">
+              <option value="" data-en="Select treatment..." data-he="בחרו טיפול...">Select treatment...</option>
+              <option data-en="Pyridostigmine (Mestinon)" data-he="פירידוסטיגמין (מסטינון)">Pyridostigmine (Mestinon)</option>
+              <option data-en="Steroids (Prednisone)" data-he="סטרואידים (פרדניזון)">Steroids (Prednisone)</option>
+              <option data-en="Azathioprine / Mycophenolate" data-he="אזתיופרין / מיקופנולט">Azathioprine / Mycophenolate</option>
+              <option data-en="Efgartigimod (Vyvgart)" data-he="אפגרטיגמוד (ויבגרט)">Efgartigimod (Vyvgart)</option>
+              <option data-en="Rituximab" data-he="ריטוקסימב">Rituximab</option>
+              <option data-en="Other / Multiple" data-he="אחר / שילוב">Other / Multiple</option>
+            </select>
+          </div>
+          <button type="submit" class="mg-monitor-submit" data-en="Register — We'll Call You Back →" data-he="הרשמה — נחזור אליכם ←">Register — We'll Call You Back →</button>
+        </form>
+
+        <div id="mg-monitor-msg"></div>
+        <div class="mg-monitor-promise" data-en="Your details are confidential and will only be used for the MG Monitor program." data-he="פרטיכם חסויים וישמשו אך ורק לצורך תוכנית MG Monitor.">Your details are confidential and will only be used for the MG Monitor program.</div>
       </div>
 
     </div>
@@ -1896,6 +2156,53 @@
       ? 'תודה! נחזור אליך בהקדם.'
       : 'Thank you! We will get back to you shortly.';
     alert(msg);
+  });
+
+  // ── MG Monitor form ──────────────────────────────
+  document.getElementById('mgMonitorForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn  = this.querySelector('.mg-monitor-submit');
+    const msg  = document.getElementById('mg-monitor-msg');
+    const isHe = currentLang === 'he';
+
+    btn.textContent = isHe ? 'שולח...' : 'Sending...';
+    btn.disabled = true;
+
+    const payload = {
+      formType:  'MG Monitor',
+      fullName:  document.getElementById('mg-name').value,
+      phone:     document.getElementById('mg-phone').value,
+      diagYear:  document.getElementById('mg-year').value,
+      treatment: document.getElementById('mg-treatment').value,
+    };
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function() {
+      msg.style.display = 'block';
+      msg.style.background = 'rgba(18,224,192,.12)';
+      msg.style.color = '#12e0c0';
+      msg.style.border = '1px solid rgba(18,224,192,.25)';
+      msg.textContent = isHe
+        ? '✅ נרשמתם בהצלחה! נחזור אליכם תוך 48 שעות.'
+        : '✅ Registered! We\'ll call you back within 48 hours.';
+      document.getElementById('mgMonitorForm').reset();
+      btn.textContent = isHe ? 'הרשמה — נחזור אליכם ←' : 'Register — We\'ll Call You Back →';
+      btn.disabled = false;
+    }).catch(function() {
+      msg.style.display = 'block';
+      msg.style.background = 'rgba(255,80,80,.10)';
+      msg.style.color = '#ff8080';
+      msg.style.border = '1px solid rgba(255,80,80,.20)';
+      msg.textContent = isHe
+        ? '❌ שגיאה בשליחה. אנא נסו שנית או צרו קשר טלפוני.'
+        : '❌ Submission error. Please try again or call us directly.';
+      btn.textContent = isHe ? 'הרשמה — נחזור אליכם ←' : 'Register — We\'ll Call You Back →';
+      btn.disabled = false;
+    });
   });
 
   // ── Pre-visit form → Google Sheets ───────────────
