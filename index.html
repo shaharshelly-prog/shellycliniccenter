@@ -715,6 +715,69 @@
     .footer-bottom p { font-size: .78rem; color: rgba(255,255,255,.35); }
 
     /* ══════════════════════════════════════════════
+       HAMBURGER MENU
+    ══════════════════════════════════════════════ */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: all .3s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 66px; left: 0; right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--mid);
+      z-index: 997;
+      padding: 8px 5% 20px;
+      box-shadow: 0 8px 24px rgba(13,43,85,.10);
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu ul { list-style: none; }
+    .mobile-menu ul li a {
+      display: block;
+      padding: 13px 0;
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--mid);
+    }
+    .mobile-menu ul li:last-child a { border-bottom: none; }
+    .mobile-menu-footer {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .mobile-menu-footer .lang-toggle { flex-shrink: 0; }
+    .mobile-menu-footer .nav-appt { flex: 1; text-align: center; }
+
+    /* ══════════════════════════════════════════════
+       INLINE GRID CLASSES
+    ══════════════════════════════════════════════ */
+    .mg-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+    .clinic-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+    .press-nejm-inner { display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center; position:relative; }
+    .press-podcast-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center; background:var(--light); border:1px solid var(--mid); border-radius:20px; overflow:hidden; margin-top:28px; }
+
+    /* ══════════════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════════════ */
     @media (max-width: 900px) {
@@ -731,6 +794,10 @@
       .services-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-appt { display: none; }
+      .mg-grid, .clinic-grid, .press-podcast-grid { grid-template-columns: 1fr; }
+      .press-nejm-inner { grid-template-columns: 1fr; }
     }
     @media (max-width: 580px) {
       .hero-photo-panel { min-height: 340px; }
@@ -819,8 +886,32 @@
       <button class="lang-btn"        onclick="setLang('he')">עב</button>
     </div>
     <a href="https://www.tor4you.co.il/edstn.asp?siteid=8908&sid=8ACDEA42CCE309DF" target="_blank" class="nav-appt" data-en="Book Appointment" data-he="לקביעת תור">Book Appointment</a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="#about"       onclick="closeMobileMenu()" data-en="About"         data-he="על ד״ר שלי">About</a></li>
+    <li><a href="#specialties" onclick="closeMobileMenu()" data-en="Specialties"   data-he="תחומי התמחות">Specialties</a></li>
+    <li><a href="#press"       onclick="closeMobileMenu()" data-en="Press"         data-he="בתקשורת">Press</a></li>
+    <li><a href="#myasthenia"  onclick="closeMobileMenu()" data-en="Myasthenia"    data-he="מיאסטניה גרביס">Myasthenia</a></li>
+    <li><a href="#clinic"      onclick="closeMobileMenu()" data-en="Clinic"        data-he="קליניקה פרטית">Clinic</a></li>
+    <li><a href="#previsit"    onclick="closeMobileMenu()" data-en="Pre-Visit Form" data-he="טופס לפני הביקור">Pre-Visit Form</a></li>
+    <li><a href="#pricing"     onclick="closeMobileMenu()" data-en="Pricing"       data-he="מחירון">Pricing</a></li>
+    <li><a href="#contact"     onclick="closeMobileMenu()" data-en="Contact"       data-he="יצירת קשר">Contact</a></li>
+  </ul>
+  <div class="mobile-menu-footer">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn"        onclick="setLang('he')">עב</button>
+    </div>
+    <a href="https://www.tor4you.co.il/edstn.asp?siteid=8908&sid=8ACDEA42CCE309DF" target="_blank" class="nav-appt" data-en="Book Appointment" data-he="לקביעת תור">Book Appointment</a>
+  </div>
+</div>
 
 
 <!-- ══════════════════════════════════════
@@ -1080,7 +1171,7 @@
 ══════════════════════════════════════ -->
 <section class="section section-alt" id="myasthenia">
   <div class="container">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
+    <div class="mg-grid">
 
       <!-- LEFT: explanation -->
       <div>
@@ -1173,7 +1264,7 @@
 ══════════════════════════════════════ -->
 <section class="section" id="clinic">
   <div class="container">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;">
+    <div class="clinic-grid">
       <div>
         <span class="tag tag-gold" data-en="Private Clinic" data-he="קליניקה פרטית">Private Clinic</span>
         <h2 data-en="Shelly Clinic Center" data-he="מרכז שלי — קליניקה נוירולוגית">Shelly Clinic Center</h2>
@@ -1333,7 +1424,7 @@
         <div style="position:absolute; top:-40px; right:-40px; width:220px; height:220px; border-radius:50%; background:rgba(200,151,31,.08);"></div>
         <div style="position:absolute; bottom:-60px; left:-30px; width:180px; height:180px; border-radius:50%; background:rgba(11,122,140,.10);"></div>
 
-        <div style="display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center; position:relative;">
+        <div class="press-nejm-inner">
           <div>
             <!-- Source badge -->
             <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
@@ -1374,7 +1465,7 @@
     </a>
 
     <!-- Podcast -->
-    <div style="margin-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center; background:var(--light); border:1px solid var(--mid); border-radius:20px; overflow:hidden;">
+    <div class="press-podcast-grid">
 
       <!-- Video embed -->
       <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
@@ -1739,6 +1830,18 @@
     // Toggle active button
     document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  }
+
+  // ── Hamburger menu ───────────────────────────────
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const btn  = document.getElementById('nav-hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('nav-hamburger').classList.remove('open');
   }
 
   // ── Nav scroll shadow ────────────────────────────
