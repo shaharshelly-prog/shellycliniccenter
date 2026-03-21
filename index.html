@@ -34,7 +34,6 @@
     "description": "Neurologist specializing in neuromuscular diseases, neuroimmunology, and AI in neurology. Chair of Neurology at Rambam Health Care Campus and Senior Lecturer at Technion.",
     "url": "https://shaharshellymd.com",
     "telephone": "+972-9-9656565",
-    "email": "shaharshelly@gmail.com",
     "medicalSpecialty": ["Neurology","Neuromuscular Medicine","Neuroimmunology","Clinical Electrophysiology"],
     "address": {
       "@type": "PostalAddress",
@@ -1646,10 +1645,6 @@
             <span style="color:var(--teal); font-size:1.1rem;">📞</span>
             <a href="tel:0999656565" style="color:var(--text); text-decoration:none;">09-9656565</a>
           </div>
-          <div style="display:flex; align-items:center; gap:10px; font-size:.9rem; color:var(--text);">
-            <span style="color:var(--teal); font-size:1.1rem;">✉️</span>
-            <a href="mailto:shaharshelly@gmail.com" style="color:var(--teal);">shaharshelly@gmail.com</a>
-          </div>
         </div>
 
         <a href="https://www.tor4you.co.il/edstn.asp?siteid=8908&sid=8ACDEA42CCE309DF" target="_blank" class="btn btn-primary" style="margin-top:28px;" data-en="📅 Schedule an Appointment" data-he="📅 לקביעת פגישה">📅 Schedule an Appointment</a>
@@ -2055,13 +2050,6 @@
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon">✉️</div>
-            <div>
-              <div class="lbl" data-en="Email" data-he="דוא״ל">Email</div>
-              <div class="val"><a href="mailto:shaharshelly@gmail.com">shaharshelly@gmail.com</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
             <div class="contact-icon" style="background:#e8f9ef;">💬</div>
             <div>
               <div class="lbl" data-en="WhatsApp" data-he="וואטסאפ">WhatsApp</div>
@@ -2071,44 +2059,6 @@
         </div>
       </div>
 
-      <!-- RIGHT: form -->
-      <div class="contact-form">
-        <h3 data-en="Request an Appointment" data-he="בקש תור">Request an Appointment</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label data-en="First Name" data-he="שם פרטי">First Name</label>
-            <input type="text" placeholder="John" data-placeholder-en="John" data-placeholder-he="ישראל" />
-          </div>
-          <div class="form-group">
-            <label data-en="Last Name" data-he="שם משפחה">Last Name</label>
-            <input type="text" placeholder="Doe" data-placeholder-en="Doe" data-placeholder-he="ישראלי" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label data-en="Phone" data-he="טלפון">Phone</label>
-          <input type="tel" placeholder="+972 50 000 0000" />
-        </div>
-        <div class="form-group">
-          <label data-en="Email" data-he="דוא״ל">Email</label>
-          <input type="email" placeholder="your@email.com" />
-        </div>
-        <div class="form-group">
-          <label data-en="Reason for Visit" data-he="סיבת הביקור">Reason for Visit</label>
-          <select>
-            <option data-en="Neurological Consultation" data-he="ייעוץ נוירולוגי">Neurological Consultation</option>
-            <option data-en="EMG Testing" data-he="בדיקת EMG">EMG Testing</option>
-            <option data-en="Genetic Counseling" data-he="ייעוץ גנטי">Genetic Counseling</option>
-            <option data-en="Physical Therapy" data-he="פיזיותרפיה">Physical Therapy</option>
-            <option data-en="Second Opinion" data-he="חוות דעת שנייה">Second Opinion</option>
-            <option data-en="Other" data-he="אחר">Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label data-en="Message (optional)" data-he="הודעה (אופציונלי)">Message (optional)</label>
-          <textarea placeholder="Please briefly describe your symptoms or reason for the visit..." data-placeholder-en="Please briefly describe your symptoms or reason for the visit..." data-placeholder-he="אנא תאר בקצרה את הסימפטומים שלך או את סיבת הביקור..."></textarea>
-        </div>
-        <button class="form-submit" data-en="Send Request →" data-he="שלח בקשה ←">Send Request →</button>
-      </div>
 
     </div>
   </div>
@@ -2147,7 +2097,7 @@
       <div class="footer-col">
         <h4 data-en="Contact" data-he="יצירת קשר">Contact</h4>
         <a href="tel:0999656565">📞 09-9656565</a>
-        <a href="mailto:shaharshelly@gmail.com">✉️ shaharshelly@gmail.com</a>
+        <a href="https://wa.me/972559669522" target="_blank">💬 WhatsApp</a>
         <a href="#contact" data-en="📍 Herzliya Clinic" data-he="📍 קליניקה הרצליה">📍 Herzliya Clinic</a>
         <a href="https://scholar.google.com/citations?user=TVqgLkcAAAAJ" target="_blank">🔬 Google Scholar</a>
       </div>
@@ -2215,13 +2165,6 @@
     nav.classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  // ── Contact form (placeholder) ───────────────────
-  document.querySelector('.form-submit').addEventListener('click', () => {
-    const msg = currentLang === 'he'
-      ? 'תודה! נחזור אליך בהקדם.'
-      : 'Thank you! We will get back to you shortly.';
-    alert(msg);
-  });
 
   // ── MG Monitor form ──────────────────────────────
   document.getElementById('mgMonitorForm').addEventListener('submit', function(e) {
