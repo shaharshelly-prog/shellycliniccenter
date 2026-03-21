@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -1061,8 +1061,8 @@
 
   <div class="nav-right">
     <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn"        onclick="setLang('he')">עב</button>
+      <button class="lang-btn"        onclick="setLang('en')">EN</button>
+      <button class="lang-btn active" onclick="setLang('he')">עב</button>
     </div>
     <a href="https://www.tor4you.co.il/edstn.asp?siteid=8908&sid=8ACDEA42CCE309DF" target="_blank" class="nav-appt" data-en="Book Appointment" data-he="לקביעת תור">Book Appointment</a>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" onclick="toggleMobileMenu()">
@@ -1086,8 +1086,8 @@
   </ul>
   <div class="mobile-menu-footer">
     <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn"        onclick="setLang('he')">עב</button>
+      <button class="lang-btn"        onclick="setLang('en')">EN</button>
+      <button class="lang-btn active" onclick="setLang('he')">עב</button>
     </div>
     <a href="https://www.tor4you.co.il/edstn.asp?siteid=8908&sid=8ACDEA42CCE309DF" target="_blank" class="nav-appt" data-en="Book Appointment" data-he="לקביעת תור">Book Appointment</a>
   </div>
@@ -2116,7 +2116,7 @@
 ══════════════════════════════════════ -->
 <script>
   // ── Language toggle ─────────────────────────────
-  let currentLang = 'en';
+  let currentLang = 'he';
 
   function setLang(lang) {
     currentLang = lang;
@@ -2158,6 +2158,9 @@
     document.getElementById('mobile-menu').classList.remove('open');
     document.getElementById('nav-hamburger').classList.remove('open');
   }
+
+  // Set Hebrew as default on load
+  setLang('he');
 
   // ── Nav scroll shadow ────────────────────────────
   const nav = document.getElementById('main-nav');
