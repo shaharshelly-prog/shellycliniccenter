@@ -2080,7 +2080,7 @@
           </div>
         </div>
         <p data-en="Chair of Neurology at Rambam Health Care Campus and Senior Lecturer at the Technion Faculty of Medicine. Specializing in neuromuscular diseases, neuroimmunology, and AI applications in clinical neurology." data-he="ראש מחלקת נוירולוגיה בקמפוס רמב״ם לבריאות ומרצה בכיר בפקולטה לרפואה של הטכניון. מתמחה במחלות נוירומוסקולריות, נוירואימונולוגיה ויישומי AI בנוירולוגיה קלינית.">
-          Chair of Neurology at Rambam Health Care Campus and Senior Lecturer at the Technion Faculty of Medicine.
+          Chair of Neurology at Rambam Health Care Campus and Senior Lecturer at the Technion Faculty of Medicine. Specializing in neuromuscular diseases, neuroimmunology, and AI applications in clinical neurology.
         </p>
       </div>
 
@@ -2166,6 +2166,9 @@
   });
 
 
+  // ── Google Sheets endpoint ───────────────────────
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyzqfsLBGI7epTEyZjXO5nKYDEuW-Bgz_Vw2CF64ZFxDxaLCmJjffs5waDVDnivgSP74A/exec';
+
   // ── MG Monitor form ──────────────────────────────
   document.getElementById('mgMonitorForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -2214,7 +2217,6 @@
   });
 
   // ── Pre-visit form → Google Sheets ───────────────
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyzqfsLBGI7epTEyZjXO5nKYDEuW-Bgz_Vw2CF64ZFxDxaLCmJjffs5waDVDnivgSP74A/exec';
 
   document.getElementById('preVisitForm').addEventListener('submit', function(e) {
     e.preventDefault();
