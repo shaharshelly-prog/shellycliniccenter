@@ -605,10 +605,11 @@
       flex-wrap: wrap; gap: 14px;
     }
     .affil-pill {
+      display: flex; align-items: center; gap: 10px;
       background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.14);
       border-radius: 50px;
-      padding: 10px 22px;
+      padding: 8px 18px 8px 8px;
       font-size: .85rem; font-weight: 600;
       color: rgba(255,255,255,.80);
       transition: all .2s;
@@ -616,6 +617,23 @@
     .affil-pill:hover {
       background: rgba(255,255,255,.12);
       color: var(--white);
+    }
+    .affil-pill-logo {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; overflow: hidden;
+      padding: 3px;
+    }
+    .affil-pill-logo img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+    }
+    .affil-pill-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 14px;
     }
 
     /* ══════════════════════════════════════════════
@@ -977,12 +995,30 @@
   <div class="container">
     <div class="section-label" data-en="Academic & Clinical Affiliations" data-he="שיוך אקדמי וקליני">Academic & Clinical Affiliations</div>
     <div class="affil-row">
-      <div class="affil-pill" data-en="Rambam Health Care Campus" data-he="קמפוס הבריאות רמב״ם">Rambam Health Care Campus</div>
-      <div class="affil-pill" data-en="Technion Faculty of Medicine" data-he="הפקולטה לרפואה, טכניון">Technion Faculty of Medicine</div>
-      <div class="affil-pill" data-en="Mayo Clinic" data-he="Mayo Clinic">Mayo Clinic</div>
-      <div class="affil-pill" data-en="RTICC – Rappaport Cancer Center" data-he="RTICC – מרכז רפפורט לסרטן">RTICC – Rappaport Cancer Center</div>
-      <div class="affil-pill" data-en="Israeli Neurological Society" data-he="האגודה הנוירולוגית הישראלית">Israeli Neurological Society</div>
-      <div class="affil-pill" data-en="World Org. for Congenital Muscular Diseases" data-he="הארגון העולמי למחלות שריר מולדות">World Org. for Congenital Muscular Diseases</div>
+      <div class="affil-pill">
+        <div class="affil-pill-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/9/94/The_logo_of_rambam_health_care_campus_c.jpg" alt="Rambam" /></div>
+        <span data-en="Rambam Health Care Campus" data-he="קמפוס הבריאות רמב״ם">Rambam Health Care Campus</span>
+      </div>
+      <div class="affil-pill">
+        <div class="affil-pill-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Technion_logo.svg" alt="Technion" /></div>
+        <span data-en="Technion Faculty of Medicine" data-he="הפקולטה לרפואה, טכניון">Technion Faculty of Medicine</span>
+      </div>
+      <div class="affil-pill">
+        <div class="affil-pill-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Mayo_Clinic_2023_logo.svg" alt="Mayo Clinic" /></div>
+        <span data-en="Mayo Clinic" data-he="Mayo Clinic">Mayo Clinic</span>
+      </div>
+      <div class="affil-pill">
+        <div class="affil-pill-icon">🔬</div>
+        <span data-en="RTICC – Rappaport Cancer Center" data-he="RTICC – מרכז רפפורט לסרטן">RTICC – Rappaport Cancer Center</span>
+      </div>
+      <div class="affil-pill">
+        <div class="affil-pill-icon">🧠</div>
+        <span data-en="Israeli Neurological Society" data-he="האגודה הנוירולוגית הישראלית">Israeli Neurological Society</span>
+      </div>
+      <div class="affil-pill">
+        <div class="affil-pill-icon">🌍</div>
+        <span data-en="World Org. for Congenital Muscular Diseases" data-he="הארגון העולמי למחלות שריר מולדות">World Org. for Congenital Muscular Diseases</span>
+      </div>
     </div>
   </div>
 </div>
@@ -1010,14 +1046,18 @@
 
         <ul class="about-list" style="margin-top:24px;">
           <li>
-            <div class="icon">🏅</div>
+            <div class="icon" style="background:var(--white); border:1px solid var(--mid); padding:3px; overflow:hidden;">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Ud-also-eng-wiki.png" alt="University of Debrecen" style="width:100%; height:100%; object-fit:contain;" />
+            </div>
             <div>
               <div class="lbl" data-en="Medical Degree" data-he="לימודי רפואה">Medical Degree</div>
               <div class="val" data-en="University of Debrecen, Hungary — with Distinction" data-he="אוניברסיטת דברצן, הונגריה — בהצטיינות יתרה">University of Debrecen, Hungary — with Distinction</div>
             </div>
           </li>
           <li>
-            <div class="icon">🔬</div>
+            <div class="icon" style="background:var(--white); border:1px solid var(--mid); padding:3px; overflow:hidden;">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Mayo_Clinic_2023_logo.svg" alt="Mayo Clinic" style="width:100%; height:100%; object-fit:contain;" />
+            </div>
             <div>
               <div class="lbl" data-en="Fellowship" data-he="השתלמות בכירה">Fellowship</div>
               <div class="val" data-en="Mayo Clinic · Neuromuscular & Electrophysiology (2018–2021)" data-he="Mayo Clinic · מחלות עצב-שריר ואלקטרופיזיולוגיה (2018–2021)">Mayo Clinic · Neuromuscular & Electrophysiology (2018–2021)</div>
