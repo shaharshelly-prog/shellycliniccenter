@@ -730,6 +730,13 @@
       .services-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
       .nav-links { display: none; }
+
+      /* Inline grid sections → single column on tablet/phone */
+      [data-mg-grid]      { grid-template-columns: 1fr !important; gap: 32px !important; }
+      [data-clinic-grid]  { grid-template-columns: 1fr !important; gap: 32px !important; }
+      [data-podcast-grid] { grid-template-columns: 1fr !important; }
+      [data-press-inner]  { grid-template-columns: 1fr !important; }
+      [data-ean-grid]     { grid-template-columns: 1fr !important; padding: 24px 20px !important; }
     }
     @media (max-width: 580px) {
       .hero-photo-panel { min-height: 340px; }
@@ -761,6 +768,19 @@
       .footer-brand p, .footer-col a { font-size: .8rem; }
       .np-name { font-size: .88rem; }
       .np-title { font-size: .68rem; }
+
+      /* Press featured article */
+      [data-press-inner] { text-align: center; }
+      [data-ean-grid]    { text-align: center; }
+
+      /* Podcast text padding */
+      [data-podcast-grid] > div:last-child { padding: 20px 16px !important; }
+
+      /* Pricing card */
+      #pricing .container > div { margin-top: 28px !important; }
+
+      /* Contact form full-width */
+      .contact-form { padding: 24px 16px; }
     }
 
     /* ══════════════════════════════════════════════
@@ -857,7 +877,7 @@
         <div class="trust-badges">
           <div class="trust-badge"><div class="dot"></div><span data-en="Mayo Clinic Fellowship" data-he="פלואושיפ ב-Mayo Clinic">Mayo Clinic Fellowship</span></div>
           <div class="trust-badge"><div class="dot"></div><span data-en="Top 10 Neurologist (Doximity)" data-he="מקום 10 הנוירולוגים המשפיעים (Doximity)">Top 10 Neurologist (Doximity)</span></div>
-          <div class="trust-badge"><div class="dot"></div><span data-en="40+ Publications" data-he="מעל 40 מאמרים מדעיים">40+ Publications</span></div>
+          <div class="trust-badge"><div class="dot"></div><span data-en="80+ Publications" data-he="מעל 80 מאמרים מדעיים">80+ Publications</span></div>
           <div class="trust-badge"><div class="dot"></div><span data-en="Rambam Chair of Neurology" data-he="מנהל נוירולוגיה, רמב״ם">Rambam Chair of Neurology</span></div>
         </div>
       </div>
@@ -1079,7 +1099,7 @@
 ══════════════════════════════════════ -->
 <section class="section section-alt" id="myasthenia">
   <div class="container">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;" data-mg-grid>
 
       <!-- LEFT: explanation -->
       <div>
@@ -1172,7 +1192,7 @@
 ══════════════════════════════════════ -->
 <section class="section" id="clinic">
   <div class="container">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;" data-clinic-grid>
       <div>
         <span class="tag tag-gold" data-en="Private Clinic" data-he="קליניקה פרטית">Private Clinic</span>
         <h2 data-en="Shelly Clinic Center" data-he="מרכז שלי — קליניקה נוירולוגית">Shelly Clinic Center</h2>
@@ -1279,7 +1299,7 @@
       <div>
         <span class="tag" data-en="Selected Publications" data-he="פרסומים נבחרים">Selected Publications</span>
         <h2 data-en="Recent Research" data-he="מחקרים עדכניים">Recent Research</h2>
-        <p data-en="Over 40 peer-reviewed publications. Multiple patents." data-he="למעלה מ-40 מאמרים בכתבי עת עמיתים. פטנטים מרובים.">Over 40 peer-reviewed publications. Multiple patents.</p>
+        <p data-en="Over 80 peer-reviewed publications. Multiple patents." data-he="למעלה מ-80 מאמרים בכתבי עת עמיתים. פטנטים מרובים.">Over 80 peer-reviewed publications. Multiple patents.</p>
 
         <div class="pub-list">
           <div class="pub-item">
@@ -1332,7 +1352,7 @@
         <div style="position:absolute; top:-40px; right:-40px; width:220px; height:220px; border-radius:50%; background:rgba(200,151,31,.08);"></div>
         <div style="position:absolute; bottom:-60px; left:-30px; width:180px; height:180px; border-radius:50%; background:rgba(11,122,140,.10);"></div>
 
-        <div style="display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center; position:relative;">
+        <div style="display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center; position:relative;" data-press-inner>
           <div>
             <!-- Source badge -->
             <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
@@ -1373,7 +1393,7 @@
     </a>
 
     <!-- Podcast -->
-    <div style="margin-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center; background:var(--light); border:1px solid var(--mid); border-radius:20px; overflow:hidden;">
+    <div style="margin-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center; background:var(--light); border:1px solid var(--mid); border-radius:20px; overflow:hidden;" data-podcast-grid>
 
       <!-- Video embed -->
       <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
@@ -1405,7 +1425,7 @@
 
     <!-- EAN Recognition -->
     <a href="https://aforam.org/rambam-research-on-ai-in-neurology-earns-european-recognition/" target="_blank" style="text-decoration:none; display:block; margin-top:28px;">
-      <div style="background:var(--white); border:1px solid var(--mid); border-radius:20px; padding:36px 32px; display:grid; grid-template-columns:1fr auto; gap:28px; align-items:center; transition:transform .2s, box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div data-ean-grid style="background:var(--white); border:1px solid var(--mid); border-radius:20px; padding:36px 32px; display:grid; grid-template-columns:1fr auto; gap:28px; align-items:center; transition:transform .2s, box-shadow .2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
         <div>
           <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
             <div style="background:rgba(13,43,85,.06); border:1px solid rgba(13,43,85,.12); border-radius:8px; padding:5px 12px; font-size:.75rem; font-weight:700; color:var(--navy); letter-spacing:.06em;">AMERICAN FRIENDS OF RAMBAM</div>
